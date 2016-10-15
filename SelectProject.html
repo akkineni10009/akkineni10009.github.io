@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf8" />
+	<title>Select Project</title>
+	
+	<script type=text/javascript src="jquery.min.js"> </script>
+	
+	<style type="text/css">
+
+	body{
+		background-color:#e6e6ff;
+	}
+	
+	#topbar{
+		background-color:#99cc00;
+		margin-bottom:60px;
+		padding-left:500px;
+		padding-top:10px;
+		padding-bottom:20px;
+		height:50px;
+		
+	}
+
+	#selectProject{
+		margin-left:550px;
+		margin-top:20px;
+		width:100%;
+	}
+
+	#dropdown{
+		width:200px;
+		height:30px;
+	}
+
+	#submit{
+		margin-left: 600px;
+		margin-top:90px;
+		width:500px;
+		height:30px;
+		font-size:2em;
+	}
+
+	#login{
+		float:right;
+		margin-top: 25px;
+		margin-right: 5px;
+	}
+
+	</style>
+</head>
+
+<body>
+	<div id="topbar">
+		<h3 id="login">Akkineni (Logout)</h3>
+		<h2>Tracebility Tool: Select Project</h2>
+		
+	</div>
+
+	<div id="selectProject">
+		 
+		<h2>Please select the project</h2>
+		<select id="dropdown">
+ 	 		<option value="msd">Managing software development</option>
+  			<option value="methods">Methods</option>
+  			<option value="fcs">Foundations of Computer science</option>
+  			<option value="architecture">Architecture</option>
+  			<option value="practicum">Practicum Project</option>
+		</select>
+	</div>
+
+	<div id="submit">
+		<button>Submit</button>
+	</div>
+	<script>
+		$("#submit").click(function(event){
+			window.open("ChooseAction.html");
+		})
+	</script>
+</body>
+</html>

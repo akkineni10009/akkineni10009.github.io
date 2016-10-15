@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf8" />
+	<title>Login Screen</title>
+	<script type="text/javascript" src="jquery.min.js"> </script>
+	<style>
+	
+	body{
+		background-color:#e6e6ff;
+	}
+
+	#container{
+		width:600px;
+		margin:0 auto;
+	}
+	
+	#topbar{
+		background-color:#99cc00;
+		margin-bottom:60px;
+		padding-left:500px;
+		padding-top:10px;
+		padding-bottom:20px;
+		height:50px;
+		
+	}
+
+	input{
+		width:200px;
+		height:40px;
+		padding:5px;
+		border-radius:5px;
+		font-size:1.2em;
+		border: 1px solid grey;
+		margin-bottom:20px;
+	}
+	
+	label{
+		width:200px;
+		float:left;
+		padding-top:13px;
+	}
+
+	#submit{
+		margin-left:260px;
+		width:80px;
+		height:30px;
+	}
+
+	#error{
+		color:red;
+		
+	}
+	
+	</style>
+</head>
+
+<body>
+	<div id="topbar">
+			<h2> Welcome to Tracebility tool </h2>
+	</div>
+	<div id="error">
+	</div>
+	<div id="container">
+		<form id="loginForm">
+			<label>Username</label>
+			<input id="username">
+
+			<label>Password</label>
+			<input type="password" id="password">
+
+			<input type="submit" id="submit" value="Submit">
+		</form>
+		
+	</div>
+	<script>
+		var errorMessage="";
+		$("#loginForm").submit(function(event){
+
+			if(($("#username").val())!="akkineni")
+			{
+				errorMessage=" <br /> Please enter valid username";
+				//$("#error").html(errorMessage);
+				alert("Wrong username");
+			}
+
+			if(($("#password").val())!="akkineni")
+			{
+				errorMessage=errorMessage+"<br /> Please enter valid password";
+				//$("#error").html(errorMessage);
+				alert("Wrong password");
+			}
+			if($("#password").val()=="akkineni" && $("#username").val()=="akkineni")
+			{
+				alert("Success");
+				window.open("SelectProject.html");
+			} 
+
+					
+		})
+	</script>
+</body>
+</html>

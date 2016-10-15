@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Link Artifacts</title>
+
+    <!-- Ignite UI Required Combined CSS Files -->
+    <link href="http://cdn-na.infragistics.com/igniteui/2016.1/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
+    <link href="http://cdn-na.infragistics.com/igniteui/2016.1/latest/css/structure/infragistics.css" rel="stylesheet" />
+
+    <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+    <!-- Ignite UI Required Combined JavaScript Files -->
+    <script src="http://cdn-na.infragistics.com/igniteui/2016.1/latest/js/infragistics.core.js"></script>
+    <script src="http://cdn-na.infragistics.com/igniteui/2016.1/latest/js/infragistics.lob.js"></script>
+
+        <style type="text/css">
+    
+
+    body{
+        background-color:#e6e6ff;
+    }
+    
+    #topbar{
+        background-color:#99cc00;
+        margin-bottom:40px;
+        padding-left:400px;
+        padding-top:10px;
+        padding-bottom:20px;
+        height:50px;    
+    }
+
+    #login{
+        float:right;
+        margin-top: 25px;
+        margin-right: 5px;
+    }
+
+    .combo-label {
+        margin-bottom:.5em;
+        margin-left:400px;
+    }
+
+    #checkboxSelectCombo{
+        margin-left:400px;
+    }
+
+    #checkboxRequirement{
+        margin-left:400px;
+        margin-bottom: 30px;
+    }
+
+    #checkboxArchitecture{
+        margin-left:400px;
+    }
+
+    #checkboxDesignElement{
+        margin-left:400px;
+        display:none;
+    }
+
+    #linkButton{
+        margin-top:30px;
+        margin-left:500px;
+        width:100px;
+        height:20px;
+    }
+
+    </style>
+
+</head>
+<body>
+    
+    <div id="topbar">
+        <h3 id="login">Akkineni (Logout)</h3>
+        <h2>Tracebility Tool: Link the artifacts</h2>       
+    </div>
+
+    <div id="displayText">
+        <h3 style="margin-left:400px"> You can only link authorized modules </h3>
+    </div>
+
+    <h4 class="combo-label" id="moduleText">Select the modules you want to link: </h4>
+    <div id="checkboxSelectCombo"></div>
+
+    <h4 class="combo-label" id="requirementText">Select the requirement you want to link: </h4>
+    <div id="checkboxRequirement"></div>
+
+    <h4 class="combo-label">Select the architecture you want to link: </h4>
+    <div id="checkboxArchitecture"></div>
+
+    <h4 class="combo-label" id="designElement" style="display:none">Select the design element you want to link: </h4>
+    <div id="checkboxDesignElement"></div>
+
+     <div>
+        <button id="linkButton"> Link </button>
+    </div>
+
+    <script>
+
+       var values ="",count=0;
+       var colors = [
+            { Name: "Requirement" },
+            { Name: "Architecture" },
+            { Name: "Design Element" },
+            { Name: "Code Module" },
+            { Name: "Test Case" },
+        ];
+
+        var reqValues = [
+            { Name: "R01" },
+            { Name: "R03" },
+            { Name: "R06" },
+            { Name: "R08" },
+            { Name: "R11" },
+        ];
+
+        var archValues = [
+            { Name: "A1" },
+            { Name: "A3" },
+            { Name: "A5" },
+            { Name: "A13" },
+            { Name: "A17" },
+        ];
+
+        var designValues = [
+            { Name: "D9" },
+            { Name: "D14" },
+            { Name: "D17" },
+            { Name: "D18" },
+        ];
+
+        $(function () {
+
+            $("#checkboxSelectCombo").igCombo({
+                width: "400px",
+                dataSource: colors,
+                textKey: "Name",
+                valueKey: "Name",
+                multiSelection: {
+                    enabled: true,
+                    showCheckboxes: true
+                }
+            });
+
+            $("#checkboxRequirement").igCombo({
+                width: "400px",
+                dataSource: reqValues,
+                textKey: "Name",
+                valueKey: "Name",
+                multiSelection: {
+                    enabled: true,
+                    showCheckboxes: true
+                }
+            });
+
+            $("#checkboxArchitecture").igCombo({
+                width: "400px",
+                dataSource: archValues,
+                textKey: "Name",
+                valueKey: "Name",
+                multiSelection: {
+                    enabled: true,
+                    showCheckboxes: true
+                }
+            });
+
+             $("#checkboxDesignElement").igCombo({
+                width: "400px",
+                dataSource: designValues,
+                textKey: "Name",
+                valueKey: "Name",
+                multiSelection: {
+                    enabled: true,
+                    showCheckboxes: true
+                }
+            });
+
+             $("#linkButton").click(function(event){
+                var x;
+                count++;
+                if(count==2)
+                {
+                    alert("You have linked successfully")
+                    window.open("ChooseAction.html");
+                }
+                else if (confirm("Continue Linking") == true) {
+                    $("#checkboxSelectCombo").remove();
+                    $("#moduleText").remove();
+                    $("#checkboxRequirement").remove();
+                    $("#requirementText").remove();
+                    $("#designElement").toggle();
+                    $("#checkboxDesignElement").toggle();
+
+                } 
+                else {
+                    window.open("ChooseAction.html");
+                }
+             })
+
+        });
+    </script>
+
+</body>
+</html>

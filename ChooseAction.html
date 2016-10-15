@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf8" />
+	<title>Choose Action</title>
+	
+	<script type=text/javascript src="jquery.min.js"> </script>
+	
+	<style type="text/css">
+
+	body{
+		background-color:#e6e6ff;
+	}
+	
+	#topbar{
+		background-color:#99cc00;
+		margin-bottom:60px;
+		padding-left:450px;
+		padding-top:10px;
+		padding-bottom:20px;
+		height:50px;	
+	}
+
+	#login{
+		float:right;
+		margin-top: 25px;
+		margin-right: 5px;
+	}
+
+	#chooseAction{
+		margin-left: 500px;
+	}
+
+	.actionButton{
+		border-radius:5px;
+		font-size:1.2em;
+		border: 1px solid grey;
+		margin-bottom: 40px;
+		width:200px;
+		
+	}
+
+	</style>
+</head>
+
+<body>
+	<div id="topbar">
+		<h3 id="login">Akkineni (Logout)</h3>
+		<h2>Tracebility Tool: Select what you want to do</h2>		
+	</div>
+
+	<div id="chooseAction">
+		<h2>Please select an action</h2>
+		 <div> <button class="actionButton" id="retrieve">Retrieve atrifacts</button> </div>
+		 <div><button class="actionButton" id="link">Link atrifacts</button></div>
+		 <div><button class="actionButton" id="update">Update Links</button></div>
+	</div>
+
+	<script>
+		$("#retrieve").click(function(event){
+			window.open("RetrieveArtifacts.html");
+		})
+
+		$("#link").click(function(event){
+			window.open("LinkArtifacts.html");
+		})
+
+		$("#update").click(function(event){
+			window.open("UpdateArtifacts.html");
+		})
+	</script>
+
+</body>
+</html>
